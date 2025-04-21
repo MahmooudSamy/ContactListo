@@ -1,4 +1,5 @@
-﻿using ContactListo.Domain;
+﻿using ContactListo.DataAccess.DTO;
+using ContactListo.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
