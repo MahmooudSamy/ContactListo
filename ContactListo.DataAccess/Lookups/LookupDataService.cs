@@ -16,9 +16,12 @@ namespace ContactListo.DataAccess.Lookups
         {
             _context = appDbContext;
         }
-        public Task<IEnumerable<Contact>> GetAllCatact()
+        public async Task<IEnumerable<Contact>> GetAllCatact()
         {
-            throw new NotImplementedException();
+            using (var context = _context())
+            {
+                return await context.Contacts.AsNoTracking().ToListAsync();
+            }
         }
     }
 }
