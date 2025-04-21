@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("ContactistaConnectionString");
+var connectionString = builder.Configuration.GetConnectionString("ContactistoConnectionString");
 builder.Services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(connectionString));
 
