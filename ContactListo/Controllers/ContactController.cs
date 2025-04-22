@@ -2,6 +2,7 @@
 using ContactListo.DataAccess.DTO;
 using ContactListo.DataAccess.Lookups;
 using ContactListo.Services;
+using ContactListo.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections;
 
@@ -20,9 +21,12 @@ namespace ContactListo.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            IEnumerable<ContactDto> contactDtos;
-             contactDtos = await _contactService.GetAllContactsAsync();
-            return View(contactDtos);
+            var contactDtos = await _contactService.GetAllContactsAsync(); 
+            var model = new ContactListViewModel
+            {
+                Contacts = contactDtos 
+            };
+            return View(model);
         }
     }
 }

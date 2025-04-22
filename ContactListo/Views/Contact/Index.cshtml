@@ -9,3 +9,59 @@
     New Contact
 </button>
 
+<div style="margin-top:15px;" class="container d-flex justify-content-center mt-50 mb-50">
+    <div class="card w-100">
+        <div class="card-header header-elements-inline">
+            <h4 class="card-title mt-2">Categories</h4>
+            <div class="header-elements">
+                <div class="row">
+
+                    <div class="col-sm-4">
+                        <div class="search-box">
+                            <form method="get" asp-controller="Contact" asp-action="Index">
+                                <input id="search" type="search" value="@ViewData["Searchkeyword"]" name="searchKeywords" class="form-control" placeholder="Search&hellip;">
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table id="table" class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>phone</th>
+                        <th>Notes</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                <tbody>
+                    @foreach(var item in Model.Contacts)
+                    {
+                        <tr>
+                            <td>@item.ContactId</td>
+                            <td>@item.FullName</td>
+                            <td>@item.Address</td>
+                            <td>@item.PhoneNumber</td>
+                            <td>@item.Notes</td>
+                            <td>
+                                <a id="EditContact" class="btn btn-sm" data-id="@item.ContactId" style="background-color:transparent;">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a id="btnDeleteContact" data-id="@item.ContactId" data-catname="@item.FullName" class="btn btn-sm" style="background-color:transparent;">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            </div>
+        </div>
+        </div>

@@ -4,6 +4,7 @@ using ContactListo.DataAccess;
 using ContactListo.DataAccess.Lookups;
 using ContactListo.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
+using ContactListo.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,7 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
     containerBuilder.RegisterType<LookupDataService>().AsImplementedInterfaces();
     // Register your repositories
     containerBuilder.RegisterType<ContactRepository>().As<IContactRepository>();
+    containerBuilder.RegisterType<ContactService>().As<IContactService>();
 
 
 });
