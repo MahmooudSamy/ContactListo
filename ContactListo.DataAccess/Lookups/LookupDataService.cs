@@ -23,5 +23,7 @@ namespace ContactListo.DataAccess.Lookups
                 return await context.Contacts.AsNoTracking().ToListAsync();
             }
         }
+
+     
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ContactListo.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,26 @@ namespace ContactListo.DataAccess.Repositories
         {
             _context = appDbContext;
         }
+        public async Task<int> GetAllContactCountAsunc()
+        {
+           
+                return await _context.Contacts.CountAsync();
+            
+
+
+        }
+        public async Task<IEnumerable<Contact>> GetContactsPagedAsync(int? pageNumber, int pageSize)
+        {
+           
+                IQueryable<Contact> contacts = (from c in _context.Contacts select c);
+                pageNumber ??= 1;
+                contacts = contacts.Skip((pageNumber.Value - 1) * pageSize).Take(pageSize);
+                return await contacts.AsNoTracking().ToListAsync();
+            
+
+        }
+
+
         public void Add(Contact contact)
         {
             throw new NotImplementedException();

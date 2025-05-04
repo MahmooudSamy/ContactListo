@@ -12,7 +12,7 @@
 <div style="margin-top:15px;" class="container d-flex justify-content-center mt-50 mb-50">
     <div class="card w-100">
         <div class="card-header header-elements-inline">
-            <h4 class="card-title mt-2">Categories</h4>
+            <h4 class="card-title mt-2">Contacts</h4>
             <div class="header-elements">
                 <div class="row">
 
@@ -63,5 +63,32 @@
                 </tbody>
             </table>
             </div>
+            <div  class="clearfix">
+            <div class="hint-text">Showing <b>@Model.Contacts.Count()</b> out of <b>@Model.ContactPagenation.Count()</b> entries</div>
+            <nav>
+                <ul id="ulTag" class="pagination">
+                    @if (Model.PageIndex <= 1)
+                    {
+                        <li class="page-item disabled"><a href="#" class="page-link">Previous</a></li>
+                        @for (int i = 0; i < Model.TotalPages; i++)
+                        {
+                            <li class="page-item"><a asp-controller="Contact" asp-action="Index" asp-route-Page="@(i+1)" class="page-link">@(i + 1)</a></li>
+                        }
+                        <li class="page-item"><a asp-controller="Contact" asp-action="Index" asp-route-Page="@(Model.PageIndex+1)" class="page-link">Next</a></li>
+
+                    }
+                    else if (Model.PageIndex <= Model.TotalPages)
+                    {
+                        <li class="page-item "><a asp-controller="Contact" asp-action="Index" asp-route-Page="@(Model.PageIndex-1)" class="page-link">Previous</a></li>
+                        @for (int i = 0; i < Model.TotalPages; i++)
+                        {
+                            <li class="page-item"><a asp-controller="Contact" asp-action="Index" asp-route-Page="@(i+1)" class="page-link">@(i + 1)</a></li>
+                        }
+                        <li class="page-item disabled"><a href="#" class="page-link">Next</a></li>
+                    }
+                </ul>
+            </nav>
+            </div>
+                
         </div>
         </div>

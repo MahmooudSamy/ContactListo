@@ -45,6 +45,13 @@ namespace ContactListo.DataAccess
               PhoneNumber = "01500000000",
               Address = "Cairo"
           },
+           new Contact
+           {
+               ContactId = 6,
+               FullName = "Yahea Mansour",
+               PhoneNumber = "01500000000",
+               Address = "Cairo"
+           },
           new Contact
           {
               ContactId = 5,

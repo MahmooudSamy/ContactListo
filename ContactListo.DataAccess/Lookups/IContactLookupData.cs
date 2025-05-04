@@ -11,5 +11,6 @@ namespace ContactListo.DataAccess.Lookups
     public interface IContactLookupData
     {
         Task<IEnumerable<Contact>> GetAllCatact();
+       
     }
 }

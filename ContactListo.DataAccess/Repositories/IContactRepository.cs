@@ -12,6 +12,10 @@ namespace ContactListo.DataAccess.Repositories
         Task<Contact> GetContactByName(string contactName);
         Task<Contact> GetContactByPhone(int phone);
         Task<Contact> GetContactByAddress(int address);
+
+        Task<int> GetAllContactCountAsunc();
+
+        Task<IEnumerable<Contact>> GetContactsPagedAsync(int? pageNumber, int pageSize);
         void Add(Contact contact);
         void Remove(Contact contact);
         Task SaveAsync();
