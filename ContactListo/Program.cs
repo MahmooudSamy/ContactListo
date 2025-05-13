@@ -23,6 +23,8 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
     // Register your repositories
     containerBuilder.RegisterType<ContactRepository>().As<IContactRepository>();
     containerBuilder.RegisterType<ContactService>().As<IContactService>();
+    containerBuilder.RegisterType<UserRepositories>().As<IUserRepositories>();
+    containerBuilder.RegisterType<UserService>().As<IUserService>();
 
 
 });
