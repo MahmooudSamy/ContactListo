@@ -4,11 +4,13 @@ using ContactListo.DataAccess.Lookups;
 using ContactListo.Services;
 using ContactListo.Utilities;
 using ContactListo.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections;
 
 namespace ContactListo.Controllers
 {
+    [Authorize]
     public class ContactController : Controller
     {
        
