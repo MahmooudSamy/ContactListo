@@ -1,4 +1,4 @@
-﻿namespace ContactListo.Models
+﻿namespace ContactListo.ViewModel
 {
     public class LoginViewModel
     {

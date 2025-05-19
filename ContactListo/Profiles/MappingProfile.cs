@@ -9,6 +9,7 @@ namespace ContactListo.Profiles
         public MappingProfile()
         {
             CreateMap<Contact, ContactDto>().ReverseMap();
+            CreateMap<UserModel, UserDto>().ReverseMap();
         }
     }
 }

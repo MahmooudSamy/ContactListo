@@ -11,7 +11,8 @@ namespace ContactListo.Services
         private IContactRepository _contactRepository;
         private IMapper _mapper;
 
-        public ContactService(IContactLookupData contactLookupData,IContactRepository contactRepository, IMapper mapper)
+        public ContactService(IContactLookupData contactLookupData,
+            IContactRepository contactRepository, IMapper mapper)
         {
             _contactLookupData = contactLookupData;
             _contactRepository = contactRepository;
